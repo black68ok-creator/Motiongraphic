@@ -48,6 +48,16 @@ HTML로 만든 데이터 모션그래픽 모음입니다.
 
 [영상 (MP4)](4.%20Loopfield-Studio%20Motion/out/loopfield-studio.mp4) · [재생 페이지](4.%20Loopfield-Studio%20Motion/index.html) · [코드](4.%20Loopfield-Studio%20Motion/) · [프롬프트](4.%20Loopfield-Studio%20Motion/prompt/Loopfield-Studio%20Prompt.txt) · [스토리보드](4.%20Loopfield-Studio%20Motion/prompt/STORYBOARD.md) · [데이터셋](4.%20Loopfield-Studio%20Motion/dataset/loopfield-studio-dataset.md)
 
+### 5. NVIDIA 1993—2026
+
+[![NVIDIA 1993—2026](5.%20NVIDIA%20Motion/out/poster.jpg)](5.%20NVIDIA%20Motion/out/nvidia-1993-2026.mp4)
+
+세 사람이 차린 그래픽 칩 회사가 GPU를 만들고 CUDA로 AI를 깨운 뒤, 연 매출 2,159억 달러와 세계 최초 시총 5조 달러를 지나 루빈으로 가기까지.
+
+25초 · 120 BPM · 1920×1080 · 30fps · 데이터 기준일 2026-10-28
+
+[영상 (MP4)](5.%20NVIDIA%20Motion/out/nvidia-1993-2026.mp4) · [재생 페이지](5.%20NVIDIA%20Motion/index.html) · [코드](5.%20NVIDIA%20Motion/) · [프롬프트](5.%20NVIDIA%20Motion/prompt/NVIDIA%20Prompt.txt) · [스토리보드](5.%20NVIDIA%20Motion/prompt/STORYBOARD.md) · [데이터셋](5.%20NVIDIA%20Motion/dataset/NVIDIA_Dataset_1993-2026.md)
+
 재생 페이지는 GitHub Pages에서 열거나, 내려받은 뒤 `index.html`을 브라우저로 열면 됩니다.
 
 ## 템플릿 프롬프트
@@ -60,3 +70,4 @@ HTML로 만든 데이터 모션그래픽 모음입니다.
 | Genesis 2015—2026 | [Genesis Prompt.txt](2.%20Genesis%20Motion/prompt/Genesis%20Prompt.txt) | [STORYBOARD.md](2.%20Genesis%20Motion/prompt/STORYBOARD.md) |
 | DJI 2006—2026 | [DJI Prompt.txt](3.%20DJI%20Motion/prompt/DJI%20Prompt.txt) | [STORYBOARD.md](3.%20DJI%20Motion/prompt/STORYBOARD.md) |
 | Loopfield Studio | [Loopfield-Studio Prompt.txt](4.%20Loopfield-Studio%20Motion/prompt/Loopfield-Studio%20Prompt.txt) | [STORYBOARD.md](4.%20Loopfield-Studio%20Motion/prompt/STORYBOARD.md) |
+| NVIDIA 1993—2026 | [NVIDIA Prompt.txt](5.%20NVIDIA%20Motion/prompt/NVIDIA%20Prompt.txt) | [STORYBOARD.md](5.%20NVIDIA%20Motion/prompt/STORYBOARD.md) |
