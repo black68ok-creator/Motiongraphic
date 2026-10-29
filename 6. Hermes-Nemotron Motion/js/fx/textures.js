@@ -6,7 +6,7 @@
 
   const PITCH = 48;
   // Lattice drift (px/s) per scene. Dark scenes only; others are covered by opaque backgrounds.
-  const DRIFT = [[-30, 0], null, null, [0, -40], null, null, null, null, [-24, 0], null, null, [0, 18]];
+  const DRIFT = [[-30, 0], null, [0, -40], null, null, null, [-24, 0], null, null, null, [20, 0], null, null, [0, 18]];
   const N_PULSE = 26;
 
   let ctx = null;

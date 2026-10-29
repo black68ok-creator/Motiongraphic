@@ -1,4 +1,4 @@
-/* 07 MODEL — "550B 중 55B만 / 깨어 일한다."
+/* 09 MODEL — "네모트론 550B로 / 바꿔 달라고 해."
    Mixture-of-experts (§1): 550 cells = 550B parameters; every 16th note a different seeded set of 55
    cells lights (55B active). The 1M-token context bar fills on b3, the release date pops on b4.
    Exit: shock-ring burst from the grid center (transitions.js). */
@@ -29,15 +29,15 @@
   const SETS = Array.from({ length: 17 }, (_, s) => activeSet(s));
 
   SX.defineScene({
-    id: 7,
+    id: 9,
     role: 'MODEL',
     bg: 'rose',
-    ruler: () => ({ from: 0, to: 3, mark: 3 }),
+    ruler: () => ({ from: 0, to: 7, mark: 7 }),
 
     build(cam) {
       const st = {};
-      st.cap = ui.caption(cam, { x: 120, y: 172, text: `${M.name} / MIXTURE OF EXPERTS` });
-      st.head = ui.headline(cam, { x: 120, y: 212, size: 130, lines: [`${M.totalB}B 중 ${M.activeB}B만`, '깨어 일한다.'] });
+      st.cap = ui.caption(cam, { x: 120, y: 172, text: `STEP 07 / ${M.name} · 550B MOE` });
+      st.head = ui.headline(cam, { x: 120, y: 212, size: 130, lines: ['네모트론 550B로', '바꿔 달라고 해.'] });
 
       const svg = U.svgFull();
       st.cells = [];

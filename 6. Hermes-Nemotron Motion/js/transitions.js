@@ -13,7 +13,7 @@
 
   const cut = { lead: 0 };
 
-  // 05 → 06: six vertical strips open from the checklist column into thirds-of-sixths (strip shutter)
+  // 04 → 05: six vertical strips open into sixths of the frame (strip shutter)
   const strips = {
     lead: T.LEAD,
     apply(p, out, inn) {
@@ -70,7 +70,7 @@
     },
   };
 
-  // 02 → 03: whip pan — both scenes slide left under a horizontal motion blur
+  // whip pan — both scenes slide left under a horizontal motion blur
   const whip = {
     lead: 5 / T.FPS,
     apply(p, out, inn) {
@@ -83,7 +83,7 @@
     },
   };
 
-  // 09 → 10: iris opens from the NVIDIA API node onto the cron dial
+  // 07 → 08: iris opens from the model-API node
   const irisOpen = {
     lead: T.LEAD,
     apply(p, out, inn) {
@@ -126,11 +126,11 @@
     },
   };
 
-  // 07 → 08: shock rings burst from the expert grid, the chat scene inside them
-  const burst = {
+  // shock rings burst from a point, the next scene inside them
+  const burstAt = (at) => ({
     lead: T.LEAD,
     apply(p, out, inn) {
-      const c = SX.L.moeCenter;
+      const c = at();
       const r = 2100 * E.inOutCubic(p);
       inn.root.style.zIndex = 2;
       inn.root.style.background = SX.BG[inn.def.bg].bg; // dark scenes are transparent over the lattice canvas
@@ -146,9 +146,9 @@
     idle() {
       if (burstSvg) burstSvg.style.display = 'none';
     },
-  };
+  });
 
-  // 03 → 04 and 11 → 12: the outgoing scene closes as an iris onto a point
+  // the outgoing scene closes as an iris onto a point
   const irisTo = (at) => ({
     lead: T.LEAD,
     apply(p, out) {
@@ -163,15 +163,17 @@
     list: [
       converge, //  01 → 02 phone screen opens
       whip, //      02 → 03
-      irisTo(() => SX.L.freeStamp), // 03 → 04 closes onto the FREE stamp
-      rgb, //       04 → 05
-      strips, //    05 → 06
+      rgb, //       03 → 04
+      strips, //    04 → 05
+      burstAt(() => SX.L.burstAt), // 05 → 06 from the Telegram phone
       slice, //     06 → 07
-      burst, //     07 → 08
+      irisOpen, //  07 → 08
       cut, //       08 → 09 hard cut
-      irisOpen, //  09 → 10
-      cut, //       10 → 11 hard cut into the montage
-      irisTo(() => ({ x: 960, y: 540 })), // 11 → 12
+      burstAt(() => SX.L.moeCenter), // 09 → 10 from the expert grid
+      irisTo(() => SX.L.freeStamp), // 10 → 11 closes onto the FREE stamp
+      whip, //      11 → 12
+      cut, //       12 → 13 hard cut into the montage
+      irisTo(() => ({ x: 960, y: 540 })), // 13 → 14
     ],
     init(layerEl) {
       layer = layerEl;

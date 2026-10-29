@@ -2,11 +2,11 @@
 
 [← 모션그래픽 목록](../README.md)
 
-25초, 120 BPM, 1920×1080 · 30fps 모션그래픽입니다. 안드로이드 휴대폰의 Termux에 Hermes Agent를 설치하고, NVIDIA build(build.nvidia.com)의 무료 API로 Nemotron 3 Ultra(550B)를 연결한 뒤, 텔레그램 봇으로 AI 자동화를 돌리는 과정을 정리했습니다. 모든 명령어와 수치는 [`dataset/Hermes_Nemotron_Termux_Dataset.md`](dataset/Hermes_Nemotron_Termux_Dataset.md)(스냅샷 2026-10-29)에서 가져왔고, 기획 과정은 [`prompt/STORYBOARD.md`](prompt/STORYBOARD.md), 생성에 쓴 프롬프트는 [`prompt/Hermes-Nemotron Prompt.txt`](<prompt/Hermes-Nemotron Prompt.txt>)에 있습니다.
+29초, 120 BPM, 1920×1080 · 30fps 모션그래픽입니다. "최강의 AI 에이전트 쓰는 법" 플레이북을 그대로 따라갑니다: 안드로이드 폰 → Termux(F-Droid/GitHub판) → Hermes Agent → 텔레그램 연동 → 막히면 GPT에게 → 백그라운드 실행 → NVIDIA build API 키 → Nemotron 3 Ultra 550B → 공짜 → 에이전트 완성 → 깃허브 스킬 → 자동 매매·유튜브·스레드·책 쓰기 → 경제적 자유 고민. 모든 명령어와 수치는 [`dataset/Hermes_Nemotron_Termux_Dataset.md`](dataset/Hermes_Nemotron_Termux_Dataset.md)(스냅샷 2026-10-29)에서 가져왔고, 기획 과정은 [`prompt/STORYBOARD.md`](prompt/STORYBOARD.md), 생성에 쓴 프롬프트는 [`prompt/Hermes-Nemotron Prompt.txt`](<prompt/Hermes-Nemotron Prompt.txt>)에 있습니다.
 
 렌더된 영상: [`out/hermes-nemotron-termux.mp4`](out/hermes-nemotron-termux.mp4)
 
-화면 하단 눈금자는 연도 대신 설정 단계(START → TERMUX → INSTALL → KEY → BOT → GATEWAY → CRON)를 따라갑니다.
+화면 하단 눈금자는 연도 대신 설정 단계(START → ANDROID → TERMUX → HERMES → TELEGRAM → BACKGROUND → API KEY → MODEL → DONE)를 따라갑니다.
 
 ## 실행
 
@@ -40,7 +40,7 @@ node tools/render.mjs
 
 ```bash
 node tools/render.mjs --from 8 --to 12
-node tools/render.mjs --stills 1.7,7.7,19.8
+node tools/render.mjs --stills 3.8,13.7,28.6
 node tools/render.mjs --wav
 ```
 
@@ -65,7 +65,7 @@ js/
   ui/devices.js         일반 휴대폰, 채팅 말풍선, 터미널/파일 창 (로고 없음)
   fx/textures.js        회로 격자 점과 신호 펄스(다크 씬), 그레인, 도장 잉크 마스크
   hud.js                상시 HUD (설정 단계 눈금자)
-  scenes/01…12-*.js     씬별 build() + update(lt)
+  scenes/01…14-*.js     씬별 build() + update(lt)
   transitions.js        화면 열림, 휩 팬, 아이리스, RGB 색수차, 스트립 셔터, 슬라이스, 링 버스트
   engine.js             render(t)
   audio.js              WebAudio 트랙 + OfflineAudioContext WAV
@@ -81,7 +81,9 @@ tools/render.mjs        무의존 MP4 렌더러 (CDP + ffmpeg)
 
 - 명령어, 환경 변수, 모델 ID는 Hermes Agent 공식 문서와 build.nvidia.com 모델 페이지에 적힌 그대로입니다. API 키, 봇 토큰, 사용자 ID는 모두 가렸습니다.
 - ~40 RPM 무료 한도, 자체 호스팅 최소 사양(B200급 4장 / H100 8장), `termux-wake-lock` 팁은 2차 출처뿐이라 `~` 또는 `3RD-PARTY` 라벨을 붙였습니다.
-- "매일 아침 8시에 뉴스 브리핑"(`0 8 * * *`)은 예약 기능을 보여 주는 예시이며 화면에 EXAMPLE로 표시했습니다.
+- Termux는 Google Play판이 지원 종료 상태라 공식 출처인 F-Droid · GitHub Releases로 표기했습니다.
+- "막히면 GPT에게", "깃허브 스킬", 활용 예시(자동 매매 · 유튜브 · 스레드 · 책 쓰기)는 의뢰자의 플레이북(데이터셋 §6)입니다. 엔드카드 채팅은 EXAMPLE입니다.
+- 자동 매매 컷과 엔드카드에는 손실 위험, 모의투자 우선, 투자 책임은 본인이라는 문구를 넣었습니다. 깃허브 스킬 장면에는 검증된 저장소만 쓰고 코드를 먼저 확인하라는 경고를 넣었습니다.
 - Hermes 문서의 NVIDIA 예시는 다른 Nemotron 모델을 쓰지만, 같은 `provider: "nvidia"` 방식으로 Nemotron 3 Ultra 모델 ID를 넣은 화면으로 그렸습니다.
 - Termux에서는 Docker 격리를 쓸 수 없고 Android가 백그라운드 작업을 멈출 수 있어, 게이트웨이 상시 실행은 best-effort라고 함께 적었습니다.
 - Telegram, NVIDIA, Nous Research의 로고와 앱 화면은 재현하지 않았습니다. 휴대폰과 채팅은 일반 도형입니다.

@@ -1,4 +1,4 @@
-/* 01 HOOK — "550B짜리 AI를 / 내 휴대폰에서,"
+/* 01 HOOK — "최강의 AI 에이전트, / 쓰는 법 알려줄게."
    A pill cycles the six parts of the setup on 16th notes and lands on NEMOTRON 3 ULTRA;
    on b3 the phone screen lights up and 550B counts up inside it, 55B ACTIVE on b4.
    Exit: the phone screen opens to fill the frame (converge, transitions.js). */
@@ -22,8 +22,8 @@
     build(cam) {
       const st = {};
       st.glow = ui.glow(cam, PH.x + PH.w / 2, PH.y + PH.h / 2, C.amber, 0.14);
-      st.cap = ui.caption(cam, { x: 120, y: 172, text: `${M.name} / ON ANDROID · TERMUX` });
-      st.head = ui.headline(cam, { x: 120, y: 212, size: 140, lines: ['550B짜리 AI를', '내 휴대폰에서,'] });
+      st.cap = ui.caption(cam, { x: 120, y: 172, text: `HERMES AGENT × ${M.name} / ON YOUR PHONE` });
+      st.head = ui.headline(cam, { x: 120, y: 212, size: 120, lines: ['최강의 AI 에이전트,', '쓰는 법 알려줄게.'] });
 
       st.pillName = U.h('span', { class: 'pill-name', style: 'min-width:470px' });
       st.pillIdx = U.h('span', { class: 'pill-idx' });

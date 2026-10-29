@@ -1,6 +1,6 @@
-/* 12 END CARD — "주머니 속, / 나만의 AI 비서." (6 beats)
-   b1 the phone slides in with the bot chat · b2 an EXAMPLE request · b3 typing dots → reply ·
-   b4 subcopy (the stack) · b5 title + data date with the final hit · b6 micro-motion only. */
+/* 14 END CARD — "뭘로 경제적 자유를 / 만들지 고민해." (6 beats)
+   b1 the phone slides in · b2 an EXAMPLE request · b3 typing dots → reply · b4 the risk line ·
+   b5 title + data date with the final hit · b6 micro-motion only. */
 (function (SX) {
   'use strict';
   const { U, E, T, ui, C } = SX;
@@ -10,10 +10,10 @@
   const PH = { x: 1300, y: 110, w: 440, h: 860 };
 
   SX.defineScene({
-    id: 12,
+    id: 14,
     role: 'END CARD',
     bg: 'dark',
-    ruler: (lt) => ({ from: 0, to: U.lerp(0, 6, E.outCubic(U.prog(lt, 0, 2.0))), mark: U.lerp(0, 6, E.outCubic(U.prog(lt, 0, 2.0))) }),
+    ruler: (lt) => ({ from: 0, to: U.lerp(0, 8, E.outCubic(U.prog(lt, 0, 2.0))), mark: U.lerp(0, 8, E.outCubic(U.prog(lt, 0, 2.0))) }),
 
     build(cam) {
       const st = {};
@@ -21,17 +21,17 @@
       st.phone = SX.dev.phone(cam, PH);
       SX.dev.chatHead(st.phone.screen, 'MY HERMES BOT', `${M.name} · VIA NVIDIA BUILD`);
       const s = st.phone.screen;
-      st.req = SX.dev.bubble(s, 'me', 150, D.cron.exampleText, U.h('span', { class: 'tag', text: 'EXAMPLE' }));
+      st.req = SX.dev.bubble(s, 'me', 150, '자동 매매 봇 만들어줘', U.h('span', { class: 'tag', text: 'EXAMPLE' }));
       st.dots = SX.dev.bubble(s, 'bot', 270, U.h('span', { class: 'm', text: '•••' }));
-      st.reply = SX.dev.bubble(s, 'bot', 270, '매일 ', U.h('span', { class: 'm', text: D.cron.exampleExpr }), ' 으로 예약했어요.', U.h('span', { class: 'tag', text: 'EXAMPLE · CRON JOB SAVED' }));
+      st.reply = SX.dev.bubble(s, 'bot', 270, '좋아요. 실전 전에 모의투자로 먼저 검증할게요.', U.h('span', { class: 'tag', text: 'EXAMPLE · PAPER TRADING FIRST' }));
 
-      st.cap = ui.caption(cam, { x: 120, y: 172, text: 'ANDROID · TERMUX · TELEGRAM' });
-      st.head = ui.headline(cam, { x: 120, y: 212, size: 130, lines: ['주머니 속,', '나만의 AI 비서.'] });
-      st.sub = ui.headline(cam, { x: 122, y: 560, size: 32, stagger: 0.012, lines: ['Termux · Hermes Agent · Nemotron 3 Ultra 무료 API · Telegram'] });
+      st.cap = ui.caption(cam, { x: 120, y: 172, text: 'NOW / YOUR MOVE' });
+      st.head = ui.headline(cam, { x: 120, y: 212, size: 112, lines: ['뭘로 경제적 자유를', '만들지 고민해.'] });
+      st.sub = ui.headline(cam, { x: 122, y: 560, size: 32, stagger: 0.012, lines: [D.disclaimer] });
       st.sub.el.classList.add('subcopy');
       st.title = ui.headline(cam, { x: 116, y: 680, size: 96, stagger: 0.028, lines: ['HERMES × NEMOTRON'] });
       st.title.el.classList.add('title');
-      st.title2 = U.box(122, 800, 'mono', `${M.totalB}B · ${M.activeB}B ACTIVE · ${M.contextM}M CONTEXT · ON YOUR PHONE`);
+      st.title2 = U.box(122, 800, 'mono', 'ANDROID · TERMUX · HERMES · TELEGRAM · NVIDIA BUILD (FREE)');
       st.title2.style.fontSize = '20px';
       cam.appendChild(st.title2);
       st.date = ui.caption(cam, { x: 122, y: 880, text: `DATA AS OF ${D.asOf}` });

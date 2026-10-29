@@ -1,7 +1,7 @@
-/* 09 GATEWAY — "게이트웨이로 / 이어 붙이면,"
-   `hermes gateway` types on b1; a message packet travels Telegram → phone (b1), phone → NVIDIA API (b2),
-   the completion comes back (b3) and the reply lands in Telegram (b4). The 3rd-party wake-lock tip
-   and the best-effort note sit underneath. Exit: iris opens from the API node (transitions.js). */
+/* 07 BACKGROUND — "백그라운드로 / 계속 돌려."
+   `termux-wake-lock` (3rd-party tip) and `hermes gateway` type on b1; a message packet travels
+   Telegram → phone (b1) → model API (b2), comes back (b3) and the reply lands in Telegram (b4)
+   while the screen-off phone keeps the gateway alive. Exit: iris opens from the API node. */
 (function (SX) {
   'use strict';
   const { U, E, T, ui, C } = SX;
@@ -13,7 +13,7 @@
   const NODES = [
     { x: 120, k: 'TELEGRAM', v: '내 봇' },
     { x: 780, k: 'PHONE · TERMUX', v: 'Hermes Agent' },
-    { x: 1440, k: 'NVIDIA BUILD API', v: 'Nemotron 3 Ultra' },
+    { x: 1440, k: 'LLM API', v: 'AI 모델' },
   ];
   const NW = 360;
   const NH = 170;
@@ -27,17 +27,17 @@
   ];
 
   SX.defineScene({
-    id: 9,
-    role: 'GATEWAY',
+    id: 7,
+    role: 'BACKGROUND',
     bg: 'dark',
     ruler: (lt) => ({ from: 0, to: 5, mark: U.lerp(4, 5, E.outCubic(U.prog(lt, 0, 0.4))) }),
 
     build(cam) {
       const st = {};
       st.glow = ui.glow(cam, 960, NY + 80, C.amber, 0.1);
-      st.cap = ui.caption(cam, { x: 120, y: 172, text: 'STEP 05 / MESSAGING GATEWAY' });
-      st.head = ui.headline(cam, { x: 120, y: 212, size: 130, lines: ['게이트웨이로', '이어 붙이면,'] });
-      st.cmd = SX.dev.term(cam, { x: 1180, y: 250, w: 620, title: 'termux', size: 26, lines: [[['p', '~ $ '], [null, G.run]]] });
+      st.cap = ui.caption(cam, { x: 120, y: 172, text: 'STEP 05 / BACKGROUND · MESSAGING GATEWAY' });
+      st.head = ui.headline(cam, { x: 120, y: 212, size: 130, lines: ['백그라운드로', '계속 돌려.'] });
+      st.cmd = SX.dev.term(cam, { x: 1180, y: 230, w: 620, title: 'termux', size: 26, lines: [[['p', '~ $ '], [null, D.termux.wakeLock]], [['p', '~ $ '], [null, G.run]]] });
 
       const svg = U.svgFull();
       st.links = [0, 1].map((i) => {
@@ -58,7 +58,7 @@
       const top = U.svgFull();
       top.appendChild(st.packet);
       cam.appendChild(top);
-      st.sub = U.box(NODES[2].x, NY + NH + 18, 'mono', M.id.replace('nvidia/', ''));
+      st.sub = U.box(NODES[1].x, NY + NH + 18, 'mono', 'SCREEN OFF · STILL RUNNING');
       st.sub.style.fontSize = '13px';
       st.wake = ui.chip(cam, 120, 852, `KEEP AWAKE · ${D.termux.wakeLock}`, '3RD-PARTY TIP');
       st.note = U.box(124, 930, 'mono', 'ANDROID MAY SUSPEND BACKGROUND JOBS · BEST-EFFORT');
@@ -73,7 +73,7 @@
       st.head.update(lt, 0.02);
       const ce = ui.enter(lt, -0.05, 0.35);
       st.cmd.el.style.opacity = ce.o.toFixed(3);
-      st.cmd.update(lt, [0.0], 60);
+      st.cmd.update(lt, [0.0, 0.3], 70);
 
       st.nodes.forEach((el, i) => {
         const e = ui.enter(lt, -0.1 + i * 0.06, 0.4);

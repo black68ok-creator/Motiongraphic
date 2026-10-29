@@ -1,4 +1,4 @@
-/* 05 INSTALL — "Hermes Agent를 / 설치한 뒤,"
+/* 04 INSTALL — "헤르메스를 / 설치하고,"
    The [termux] extra (§2): six bundled features tick on 8th notes with a highlighter sweep,
    a progress bar fills to 6/6, and on b4 the [all] extra is struck out (Android-incompatible voice deps).
    Exit: six vertical strips open onto scene 06 (transitions.js). */
@@ -13,15 +13,15 @@
   SX.L.strips = { xs: [160, 480, 800, 1120, 1440, 1760], half: 0 };
 
   SX.defineScene({
-    id: 5,
+    id: 4,
     role: 'INSTALL',
     bg: 'sky',
-    ruler: (lt) => ({ from: 0, to: 2, mark: U.lerp(1, 2, E.outCubic(U.prog(lt, 0, 0.4))) }),
+    ruler: (lt) => ({ from: 0, to: 3, mark: U.lerp(2, 3, E.outCubic(U.prog(lt, 0, 0.4))) }),
 
     build(cam) {
       const st = {};
-      st.cap = ui.caption(cam, { x: 120, y: 172, text: "STEP 02 / HERMES AGENT · EXTRA [termux]" });
-      st.head = ui.headline(cam, { x: 120, y: 212, size: 104, lines: ['Hermes Agent를', '설치한 뒤,'] });
+      st.cap = ui.caption(cam, { x: 120, y: 172, text: "STEP 03 / HERMES AGENT · EXTRA [termux]" });
+      st.head = ui.headline(cam, { x: 120, y: 212, size: 130, lines: ['헤르메스를', '설치하고,'] });
 
       st.items = X.bundle.map((name, i) => {
         const el = U.h('div', { class: 'check', style: `left:${LIST.x}px;top:${LIST.y + i * 92}px` }, U.h('i'), U.h('b', {}, U.h('span', { text: name })));

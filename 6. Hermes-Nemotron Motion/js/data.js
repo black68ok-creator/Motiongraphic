@@ -32,7 +32,30 @@
       tools: 'pkg install ripgrep nodejs',
       bundle: ['CLI', 'CRON', 'PTY / BACKGROUND TERMINAL', 'TELEGRAM GATEWAY', 'MCP', 'HONCHO MEMORY'],
       wakeLock: 'termux-wake-lock', // [3rd-party]
+      // §2 official release sources
+      sources: [
+        { name: 'PLAY STORE', ok: false, note: 'DEPRECATED · NOT UPDATED' },
+        { name: 'F-DROID', ok: true, note: 'OFFICIAL' },
+        { name: 'GITHUB RELEASES', ok: true, note: 'OFFICIAL' },
+      ],
+      noMix: "DON'T MIX SOURCES (DIFFERENT SIGNING KEYS)",
     },
+
+    // §6 the user's playbook (tips, not documentation)
+    helper: {
+      ask: 'termux에 hermes 깔고 텔레그램 연동해줘',
+      askModel: 'nemotron 3 ultra 550b로 모델 바꿔줘',
+    },
+    skills: {
+      caveat: 'TRUSTED REPOS ONLY · READ THE CODE FIRST',
+    },
+    tasks: [
+      { k: '자동 매매', label: 'TRADING BOT · 손실 위험 · 모의투자로 먼저 검증', risk: true },
+      { k: '유튜브', label: 'YOUTUBE · 기획 · 대본 · 업로드 계획' },
+      { k: '스레드', label: 'THREADS · 글 작성 · 예약 게시' },
+      { k: '책 쓰기', label: 'BOOK · 목차부터 장별 원고까지' },
+    ],
+    disclaimer: '투자 판단과 손실 책임은 본인 · 자동 매매는 소액·모의투자로 검증',
 
     connect: {
       // §3
@@ -63,17 +86,19 @@
     // HUD source line per scene
     sources: [
       '§0 · §1 BUILD.NVIDIA.COM',
-      '§1 [3RD-PARTY] DEV COMMUNITY',
-      '§1 BUILD.NVIDIA.COM · [3RD-PARTY] RPM',
       '§2 HERMES DOCS · TERMUX',
+      '§2 TERMUX-APP README · DISCUSSION #4000',
       '§2 HERMES DOCS · TERMUX',
-      '§3 HERMES DOCS · PROVIDERS',
-      '§1 NIM MODEL CARD',
       '§4 HERMES DOCS · TELEGRAM',
-      '§2 · §4 HERMES DOCS',
-      '§5 HERMES DOCS · FEATURES',
-      '§1–§5 PER CUT',
-      '§0–§5 HERMES · NVIDIA DOCS',
+      '§6 PLAYBOOK TIP',
+      '§2 · §4 HERMES DOCS · [3RD-PARTY] WAKE-LOCK',
+      '§3 HERMES DOCS · PROVIDERS',
+      '§1 BUILD.NVIDIA.COM · NIM MODEL CARD',
+      '§1 BUILD.NVIDIA.COM · [3RD-PARTY] RPM',
+      '§0–§4 HERMES · NVIDIA DOCS',
+      '§5 · §6 HERMES SKILLS · PLAYBOOK',
+      '§6 PLAYBOOK · USE CASES',
+      '§6 PLAYBOOK',
     ],
   });
 })((window.SX = window.SX || {}));

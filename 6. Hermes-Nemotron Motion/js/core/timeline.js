@@ -1,4 +1,4 @@
-/* Musical timeline: 120 BPM, 1 scene = 4 beats (scene 12 = 6 beats).
+/* Musical timeline: 120 BPM, 1 scene = 4 beats (scene 14 = 6 beats).
    All times derive from integer beat indices, so beat→frame never drifts. */
 (function (SX) {
   'use strict';
@@ -8,7 +8,7 @@
   const W = 1920;
   const H = 1080;
   const SPB = 60 / BPM; // seconds per beat (0.5)
-  const SCENE_BEATS = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 6];
+  const SCENE_BEATS = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 6];
 
   let acc = 0;
   const SLOTS = SCENE_BEATS.map((beats, index) => {

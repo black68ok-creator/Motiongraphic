@@ -1,11 +1,11 @@
-/* Persistent HUD: crop marks, scene id, BPM + 4 beat cells, setup-step ruler (START → CRON), data line */
+/* Persistent HUD: crop marks, scene id, BPM + 4 beat cells, setup-step ruler (START → DONE), data line */
 (function (SX) {
   'use strict';
   const { U, T } = SX;
 
   const Y0 = 0;
-  const Y1 = 6;
-  const STEPS = ['START', 'TERMUX', 'INSTALL', 'KEY', 'BOT', 'GATEWAY', 'CRON'];
+  const Y1 = 8;
+  const STEPS = ['START', 'ANDROID', 'TERMUX', 'HERMES', 'TELEGRAM', 'BACKGROUND', 'API KEY', 'MODEL', 'DONE'];
   const RULER_W = 1016;
   const xOf = (y) => ((U.clamp(y, Y0, Y1) - Y0) / (Y1 - Y0)) * RULER_W;
 
@@ -45,7 +45,7 @@
       const bg = def.bgAt ? def.bgAt(lt) : def.bg;
       root.style.setProperty('--hud-fg', SX.BG[bg].fg);
 
-      U.setText(tl, `${U.pad(def.id)} / 12 — ${def.role}`);
+      U.setText(tl, `${U.pad(def.id)} / ${U.pad(T.SLOTS.length)} — ${def.role}`);
       U.setText(src, `DATA AS OF ${SX.DATA.asOf} · SRC: ${SX.DATA.sources[def.id - 1]}`);
 
       const beat = Math.floor(lt / T.SPB + 1e-6);

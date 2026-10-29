@@ -2,18 +2,18 @@
    One scheduling function drives both the live player and the OfflineAudioContext WAV render,
    so the MP4 soundtrack and the in-browser playback are identical.
    Kick 1·3, clap 2·4, hats on 8ths (16ths in the montage), per-scene sub drone,
-   16th-note digital arpeggio in scenes 04/09, final hit with reverb tail on scene 12 b5. */
+   16th-note digital arpeggio in scenes 03/07/12, final hit with reverb tail on scene 12 b5. */
 (function (SX) {
   'use strict';
   const { U, T } = SX;
 
   const SR = 48000;
-  // Sub-drone root (Hz) per scene: D D B♭ B♭ F F C C G B♭ A D
-  const ROOT = [36.71, 36.71, 58.27, 58.27, 43.65, 43.65, 65.41, 65.41, 49.0, 58.27, 55.0, 36.71];
-  const MONTAGE = 10; // scene index with 16th-note hats
-  const FINAL_BEAT = 48; // scene 12 · b5
+  // Sub-drone root (Hz) per scene: D D B♭ B♭ F F C C G G B♭ B♭ A D
+  const ROOT = [36.71, 36.71, 58.27, 58.27, 43.65, 43.65, 65.41, 65.41, 49.0, 49.0, 58.27, 58.27, 55.0, 36.71];
+  const MONTAGE = 12; // scene index with 16th-note hats
+  const FINAL_BEAT = T.SLOTS[T.SLOTS.length - 1].startBeat + 4; // last scene · b5
   // 16th-note arpeggios: [scene index, semitone pattern over the scene root]
-  const ARPS = [[3, [0, 7, 12, 19, 24, 19, 12, 7]], [8, [0, 12, 7, 15, 19, 15, 7, 12]]];
+  const ARPS = [[2, [0, 7, 12, 19, 24, 19, 12, 7]], [6, [0, 12, 7, 15, 19, 15, 7, 12]], [11, [0, 7, 12, 15, 19, 24, 19, 15]]];
 
   function noiseBuffer(ctx, sec, seed, brown = false) {
     const len = Math.ceil(sec * ctx.sampleRate);

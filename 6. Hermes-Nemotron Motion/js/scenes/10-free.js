@@ -1,7 +1,7 @@
-/* 03 REVEAL — "API로 부르면 / 0원이다."
+/* 10 FREE — "어쨌든, / 공짜야."
    A browser mock-up of the model page (§1): window drops in on b1, FREE stamp + AVAILABLE badge on b2,
    the ~40 RPM gauge needle sweeps on b3, the endpoint types on b4.
-   Exit: iris closes onto the stamp (transitions.js) into the terminal of scene 04. */
+   Exit: iris closes onto the stamp (transitions.js) into scene 11. */
 (function (SX) {
   'use strict';
   const { U, E, T, ui, C } = SX;
@@ -13,15 +13,15 @@
   SX.L.freeStamp = { x: 1560, y: 640 };
 
   SX.defineScene({
-    id: 3,
+    id: 10,
     role: 'FREE API',
     bg: 'amber',
-    ruler: () => ({ from: 0, to: 0, mark: 0 }),
+    ruler: () => ({ from: 0, to: 7, mark: 7 }),
 
     build(cam) {
       const st = {};
       st.cap = ui.caption(cam, { x: 120, y: 172, text: 'BUILD.NVIDIA.COM / FREE ENDPOINT' });
-      st.head = ui.headline(cam, { x: 120, y: 212, size: 132, lines: ['API로 부르면', '0원이다.'] });
+      st.head = ui.headline(cam, { x: 120, y: 212, size: 170, lines: ['어쨌든,', '공짜야.'] });
 
       st.win = SX.dev.term(cam, {
         x: WIN.x, y: WIN.y, w: WIN.w, h: WIN.h, light: true, title: `build.nvidia.com/${M.id}`, size: 22,

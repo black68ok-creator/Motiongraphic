@@ -62,9 +62,9 @@ HTML로 만든 데이터 모션그래픽 모음입니다.
 
 [![Hermes × Nemotron on Termux](6.%20Hermes-Nemotron%20Motion/out/poster.jpg)](6.%20Hermes-Nemotron%20Motion/out/hermes-nemotron-termux.mp4)
 
-안드로이드 휴대폰의 Termux에 Hermes Agent를 깔고, NVIDIA build 무료 API로 550B Nemotron 3 Ultra를 연결해, 텔레그램으로 말 한마디에 돌아가는 AI 자동화를 만들기까지.
+안드로이드 폰 하나에 Termux와 Hermes Agent를 깔고, 텔레그램으로 연결해, NVIDIA build 무료 API의 550B Nemotron 3 Ultra로 나만의 에이전트를 만든 뒤 무엇으로 경제적 자유를 만들지 고민하기까지.
 
-25초 · 120 BPM · 1920×1080 · 30fps · 데이터 기준일 2026-10-29
+29초 · 120 BPM · 1920×1080 · 30fps · 데이터 기준일 2026-10-29
 
 [영상 (MP4)](6.%20Hermes-Nemotron%20Motion/out/hermes-nemotron-termux.mp4) · [재생 페이지](6.%20Hermes-Nemotron%20Motion/index.html) · [코드](6.%20Hermes-Nemotron%20Motion/) · [프롬프트](6.%20Hermes-Nemotron%20Motion/prompt/Hermes-Nemotron%20Prompt.txt) · [스토리보드](6.%20Hermes-Nemotron%20Motion/prompt/STORYBOARD.md) · [데이터셋](6.%20Hermes-Nemotron%20Motion/dataset/Hermes_Nemotron_Termux_Dataset.md)
 

@@ -1,6 +1,5 @@
-/* 11 MONTAGE — numbers only. Eight hard cuts on 8th notes, 5-color rotation.
-   Repeated data changes form: 550B (phone counter → big), 55B (lit grid → big), 1M (bar → big),
-   ~40 RPM (gauge → big), 6 (checklist → big), 4× B200 (boards → big).
+/* 13 MONTAGE — "막 시켜". Eight hard cuts on 8th notes, 5-color rotation: the playbook's use cases
+   (auto-trading with its risk label, YouTube, Threads, a book), then the model, the price and the question.
    The last cut closes as an iris into the dark end card. */
 (function (SX) {
   'use strict';
@@ -8,25 +7,25 @@
   const D = SX.DATA;
   const M = D.model;
 
+  const TK = D.tasks;
   const CUTS = [
-    { bg: 'dark', big: `${M.totalB}B`, label: `TOTAL PARAMETERS · ${M.name}` },
-    { bg: 'amber', big: `${M.activeB}B`, label: 'ACTIVE · MIXTURE OF EXPERTS' },
-    { bg: 'sky', big: `${M.contextM}M`, label: 'TOKENS OF CONTEXT' },
-    { bg: 'paper', big: `~${M.rpm}`, label: 'REQUESTS / MIN · FREE TIER · 3RD-PARTY' },
-    { bg: 'rose', big: String(D.termux.bundle.length), label: 'FEATURES IN THE [termux] BUNDLE' },
-    { bg: 'dark', big: `${M.selfHost.b200}× B200`, size: 260, label: 'TO SELF-HOST · REPORTED · 3RD-PARTY' },
-    { bg: 'amber', big: '$0', label: `API KEY · ${M.keyPage.toUpperCase()}` },
-    { bg: 'sky', big: M.released, size: 220, top: 330, label: `${M.name} RELEASED` },
+    { bg: 'dark', big: TK[0].k, size: 280, top: 300, label: TK[0].label, risk: true },
+    { bg: 'amber', big: TK[1].k, size: 300, top: 290, label: TK[1].label },
+    { bg: 'sky', big: TK[2].k, size: 300, top: 290, label: TK[2].label },
+    { bg: 'paper', big: TK[3].k, size: 300, top: 290, label: TK[3].label },
+    { bg: 'rose', big: '막 시켜', size: 300, top: 290, label: 'ANYTHING · ONE MESSAGE ON TELEGRAM' },
+    { bg: 'dark', big: `${M.totalB}B`, label: `${M.name} · ${M.activeB}B ACTIVE` },
+    { bg: 'amber', big: '$0', label: `FREE ENDPOINT · ~${M.rpm} RPM (3RD-PARTY)` },
+    { bg: 'sky', big: '경제적 자유?', size: 220, top: 330, label: 'WHAT WILL YOU AUTOMATE?' },
   ];
   const cutAt = (lt) => U.clamp(Math.floor(lt / T.E8), 0, CUTS.length - 1);
-  const STEP_OF = [0, 0, 0, 0, 2, 0, 3, 0];
 
   SX.defineScene({
-    id: 11,
+    id: 13,
     role: 'MONTAGE',
     bg: 'dark',
     bgAt: (lt) => CUTS[cutAt(lt)].bg,
-    ruler: (lt) => ({ from: 0, to: 6, mark: STEP_OF[cutAt(lt)] }),
+    ruler: () => ({ from: 0, to: 8, mark: 8 }),
 
     build(cam) {
       const st = { cuts: [] };
@@ -40,6 +39,11 @@
         big.set(c.big);
         const lbl = U.box(0, top + size * 1.1 + 26, 'mono cut-label', c.label);
         el.appendChild(lbl);
+        if (c.risk) {
+          const w = U.h('div', { class: 'badge', style: `left:${960 - 260}px;top:${top + size * 1.1 + 80}px;width:520px;text-align:center;box-sizing:border-box;background:var(--rose);color:var(--ink)`, text: 'RISK OF LOSS · PAPER-TRADE FIRST' });
+          w.style.position = 'absolute';
+          el.appendChild(w);
+        }
         st.cuts.push({ el, big, lbl });
       });
       return st;

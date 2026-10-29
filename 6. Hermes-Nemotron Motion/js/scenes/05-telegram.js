@@ -1,4 +1,4 @@
-/* 08 BOT — "텔레그램 봇을 / 하나 만들어,"
+/* 05 TELEGRAM — "텔레그램을 / 연동하고,"
    A generic chat mock-up (§4): /newbot on b1, the bot token comes back on b2, the numeric user ID on b3,
    and the two .env variables with the deny-by-default allowlist land on b4 (8th-note bubbles). */
 (function (SX) {
@@ -10,18 +10,19 @@
   const PH = { x: 1260, y: 120, w: 450, h: 840 };
 
   SX.defineScene({
-    id: 8,
-    role: 'BOT',
-    bg: 'sky',
+    id: 5,
+    role: 'TELEGRAM',
+    bg: 'paper',
     ruler: (lt) => ({ from: 0, to: 4, mark: U.lerp(3, 4, E.outCubic(U.prog(lt, 0, 0.4))) }),
 
     build(cam) {
       const st = {};
       st.cap = ui.caption(cam, { x: 120, y: 172, text: `STEP 04 / TELEGRAM · ${G.botFather}` });
-      st.head = ui.headline(cam, { x: 120, y: 212, size: 130, lines: ['텔레그램 봇을', '하나 만들어,'] });
+      st.head = ui.headline(cam, { x: 120, y: 212, size: 130, lines: ['텔레그램을', '연동하고,'] });
 
       st.phone = SX.dev.phone(cam, PH);
-      st.phone.el.style.color = C.paper;
+      st.phone.el.style.color = C.ink;
+      SX.L.burstAt = { x: PH.x + PH.w / 2, y: PH.y + PH.h / 2 };
       SX.dev.chatHead(st.phone.screen, G.botFather, 'bot');
       const B = SX.dev.bubble;
       const s = st.phone.screen;
