@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hermes × Nemotron on Termux · Motion Graphic</title>
+  <meta name="description" content="25초, 120 BPM 모션그래픽. 안드로이드 Termux에서 Hermes Agent와 Nemotron 3 Ultra 무료 API, 텔레그램으로 AI 자동화하기.">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/stage.css">
+  <link rel="stylesheet" href="css/hud.css">
+  <link rel="stylesheet" href="css/scenes.css">
+  <link rel="stylesheet" href="css/controls.css">
+</head>
+<body>
+  <main id="viewport" aria-label="Hermes × Nemotron on Termux motion graphic">
+    <div id="stage">
+      <canvas id="bgfx" width="1920" height="1080"></canvas>
+      <div id="scenes"></div>
+      <div id="transition-layer"></div>
+      <div id="grain"></div>
+      <div id="hud"></div>
+      <div id="beatgrid" hidden></div>
+    </div>
+  </main>
+
+  <div id="controls" role="toolbar" aria-label="Player controls"></div>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <filter id="ch-r" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0"/></filter>
+    <filter id="ch-g" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0"/></filter>
+    <filter id="ch-b" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0"/></filter>
+    <filter id="mblur" x="-10%" y="0" width="120%" height="100%"><feGaussianBlur id="mblur-k" stdDeviation="0 0"/></filter>
+  </svg>
+
+  <script defer src="js/core/util.js"></script>
+  <script defer src="js/core/timeline.js"></script>
+  <script defer src="js/data.js"></script>
+  <script defer src="js/ui/components.js"></script>
+  <script defer src="js/ui/devices.js"></script>
+  <script defer src="js/fx/textures.js"></script>
+  <script defer src="js/hud.js"></script>
+  <script defer src="js/scenes/01-hook.js"></script>
+  <script defer src="js/scenes/02-selfhost.js"></script>
+  <script defer src="js/scenes/03-free.js"></script>
+  <script defer src="js/scenes/04-termux.js"></script>
+  <script defer src="js/scenes/05-install.js"></script>
+  <script defer src="js/scenes/06-key.js"></script>
+  <script defer src="js/scenes/07-moe.js"></script>
+  <script defer src="js/scenes/08-telegram.js"></script>
+  <script defer src="js/scenes/09-gateway.js"></script>
+  <script defer src="js/scenes/10-cron.js"></script>
+  <script defer src="js/scenes/11-montage.js"></script>
+  <script defer src="js/scenes/12-endcard.js"></script>
+  <script defer src="js/transitions.js"></script>
+  <script defer src="js/engine.js"></script>
+  <script defer src="js/audio.js"></script>
+  <script defer src="js/controls.js"></script>
+  <script defer src="js/main.js"></script>
+</body>
+</html>

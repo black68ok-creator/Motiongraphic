@@ -30,6 +30,12 @@
       "runtimeExecutable": "python",
       "runtimeArgs": ["-m", "http.server", "5182", "--bind", "127.0.0.1", "--directory", "5. NVIDIA Motion"],
       "port": 5182
+    },
+    {
+      "name": "hermes-nemotron-motion",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "5183", "--bind", "127.0.0.1", "--directory", "6. Hermes-Nemotron Motion"],
+      "port": 5183
     }
   ]
 }
